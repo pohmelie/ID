@@ -151,12 +151,7 @@ function callbacks.test(state)
     local log = menu.logging(state)
     timer.uni_cfg(0, 0, 0, 0, 0, 0) --power
     log("Питание подано")
-    local address
-    if state["Режим"] == "Практ." then
-        address = 28
-    else
-        address = 27
-    end
+    local address = formats[state.codename].address[state["Режим"]]
     log("Тест "..state["Режим"])
     timer.sleep(3000)
     local equal = {true, true}
@@ -240,12 +235,7 @@ function callbacks.upload(state)
     local dir, log = {to = 0, from = 0x400}, menu.logging(state)
     timer.uni_cfg(0, 0, 0, 0, 0, 0) --power
     log("Питание подано")
-    local address
-    if state["Режим"] == "Практ." then
-        address = 28
-    else
-        address = 27
-    end
+    local address = formats[state.codename].address[state["Режим"]]
     log("Ввод "..state["Режим"])
     timer.sleep(3000)
     log("Генерация массива")

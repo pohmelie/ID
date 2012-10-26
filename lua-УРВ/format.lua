@@ -11,6 +11,10 @@ if omitted:
 entry{
     codename = "kant3",
     description = "КАНТ - 3",
+    address = {
+        ["Практ."] = 28,
+        ["Боевой"] = 27,
+    },
     fields = {
         {name = "Реж. раб.",
          desc = {word = 1, bit = 12, width = 3,
@@ -121,6 +125,10 @@ entry{
 entry{
     codename = "mg",
     description = "МГ",
+    address = {
+        ["Практ."] = 28,
+        ["Боевой"] = 27,
+    },
     fields = {
         {name = "Назнач.",
          desc = {word = 1, bit = 12, width = 3,
@@ -151,7 +159,7 @@ entry{
         {name = "Ном.Гл. 1",
          desc = {word = 7, bit = 12, width = 2,
              text = {
-                 ["h1"] = 1, 
+                 ["h1"] = 1,
                  ["h2"] = 2,
                  ["h3"] = 3
              }
@@ -188,7 +196,7 @@ entry{
         {name = "Ном.Гл. 2",
          desc = {word = 10, bit = 12, width = 2,
              text = {
-                 ["h1"] = 1, 
+                 ["h1"] = 1,
                  ["h2"] = 2,
                  ["h3"] = 3
              }
@@ -225,7 +233,7 @@ entry{
         {name = "Ном.Гл. 3",
          desc = {word = 13, bit = 12, width = 2,
              text = {
-                 ["h1"] = 1, 
+                 ["h1"] = 1,
                  ["h2"] = 2,
                  ["h3"] = 3
              }
@@ -250,5 +258,299 @@ entry{
         },
         {name = "Шир. пояс", desc = {word = 31, bit = 9}},
         {name = "Дал. хода", desc = {word = 32, factor = 2}}
+    }
+}
+
+entry{
+    codename = "beril",
+    description = "Берил",
+    address = {
+        ["Практ."] = 29,
+        ["Боевой"] = 29,
+    },
+    fields = {
+        {name = "Назнач.",
+         desc = {word = 1, bit = 12, width = 3,
+             text = {
+                 ["ГПД-1"] = 0,
+                 ["ПМЗ"] = 1,
+                 ["ПТЗ"] = 2,
+                 ["ГПД-2"] = 3,
+                 ["ГПД-3"] = 4,
+                 ["ГПД-4"] = 5
+             }
+         }
+        },
+        {name = "N сп. уч.", desc = {word = 1, bit = 9, width = 3}},
+        {name = "Дист. 0", desc = {word = 2, factor = 2}},
+        {name = "Курс 0", desc = {word = 3, factor = 0.010992}},
+        {name = "Глубина 0", desc = {word = 4, factor = 0.25}},
+        {name = "Дифф. 0", desc = {word = 29, factor = 0.0054931640625}},
+        {name = "Крен 0", desc = {word = 30, factor = 0.010986328125}},
+        {name = "Дист. 1", desc = {word = 5, factor = 2}},
+        {name = "Курс 1", desc = {word = 6, factor = 0.010992}},
+        {name = "Глубина 1", desc = {word = 23, factor = 0.25}},
+        {name = "Цирк. 1",
+         desc = {word = 7, bit = 11, width = 1,
+             text = {
+                 ["Есть"] = 1,
+                 ["Нет"] = 0
+             }
+         }
+        },
+        {name = "Ном.Гл. 1",
+         desc = {word = 7, bit = 12, width = 2,
+             text = {
+                 ["h1"] = 1,
+                 ["h2"] = 2,
+                 ["h3"] = 3,
+                 ["h4"] = 0,
+             }
+         }
+        },
+        {name = "Скор. 1",
+         desc = {word = 7, bit = 14, width = 2,
+             text = {
+                 ["V1"] = 0,
+                 ["V2"] = 1,
+                 ["V3"] = 2,
+                 ["V4"] = 3,
+             }
+         }
+        },
+        {name = "Ак.реж. 1",
+         desc = {word = 7, bit = 8, width = 3,
+             text = {
+                 ["АР1"] = 0,
+                 ["АР2"] = 1,
+                 ["АР3"] = 2,
+                 ["АР4"] = 3,
+                 ["АР5"] = 4,
+                 ["АР3-1"] = 5,
+                 ["АР3-2"] = 6,
+             }
+         }
+        },
+        {name = "Дист. 2", desc = {word = 8, factor = 2}},
+        {name = "Курс 2", desc = {word = 9, factor = 0.010992}},
+        {name = "Глубина 2", desc = {word = 24, factor = 0.25}},
+        {name = "Цирк. 2",
+         desc = {word = 10, bit = 11, width = 1,
+             text = {
+                 ["Есть"] = 1,
+                 ["Нет"] = 0
+             }
+         }
+        },
+        {name = "Ном.Гл. 2",
+         desc = {word = 10, bit = 12, width = 2,
+             text = {
+                 ["h1"] = 1,
+                 ["h2"] = 2,
+                 ["h3"] = 3,
+                 ["h4"] = 0,
+             }
+         }
+        },
+        {name = "Скор. 2",
+         desc = {word = 10, bit = 14, width = 2,
+             text = {
+                 ["V1"] = 0,
+                 ["V2"] = 1,
+                 ["V3"] = 2,
+                 ["V4"] = 3,
+             }
+         }
+        },
+        {name = "Ак.реж. 2",
+         desc = {word = 10, bit = 8, width = 3,
+             text = {
+                 ["АР1"] = 0,
+                 ["АР2"] = 1,
+                 ["АР3"] = 2,
+                 ["АР4"] = 3,
+                 ["АР5"] = 4,
+                 ["АР3-1"] = 5,
+                 ["АР3-2"] = 6,
+             }
+         }
+        },
+        {name = "Дист. 3", desc = {word = 11, factor = 2}},
+        {name = "Курс 3", desc = {word = 12, factor = 0.010992}},
+        {name = "Глубина 3", desc = {word = 25, factor = 0.25}},
+        {name = "Цирк. 3",
+         desc = {word = 13, bit = 11, width = 1,
+             text = {
+                 ["Есть"] = 1,
+                 ["Нет"] = 0
+             }
+         }
+        },
+        {name = "Ном.Гл. 3",
+         desc = {word = 13, bit = 12, width = 2,
+             text = {
+                 ["h1"] = 1,
+                 ["h2"] = 2,
+                 ["h3"] = 3,
+                 ["h4"] = 0,
+             }
+         }
+        },
+        {name = "Скор. 3",
+         desc = {word = 13, bit = 14, width = 2,
+             text = {
+                 ["V1"] = 0,
+                 ["V2"] = 1,
+                 ["V3"] = 2,
+                 ["V4"] = 3,
+             }
+         }
+        },
+        {name = "Ак.реж. 3",
+         desc = {word = 13, bit = 8, width = 3,
+             text = {
+                 ["АР1"] = 0,
+                 ["АР2"] = 1,
+                 ["АР3"] = 2,
+                 ["АР4"] = 3,
+                 ["АР5"] = 4,
+                 ["АР3-1"] = 5,
+                 ["АР3-2"] = 6,
+             }
+         }
+        },
+        {name = "Дист. 4", desc = {word = 14, factor = 2}},
+        {name = "Курс 4", desc = {word = 15, factor = 0.010992}},
+        {name = "Глубина 4", desc = {word = 26, factor = 0.25}},
+        {name = "Цирк. 4",
+         desc = {word = 16, bit = 11, width = 1,
+             text = {
+                 ["Есть"] = 1,
+                 ["Нет"] = 0
+             }
+         }
+        },
+        {name = "Ном.Гл. 4",
+         desc = {word = 16, bit = 12, width = 2,
+             text = {
+                 ["h1"] = 1,
+                 ["h2"] = 2,
+                 ["h3"] = 3,
+                 ["h4"] = 0,
+             }
+         }
+        },
+        {name = "Скор. 4",
+         desc = {word = 16, bit = 14, width = 2,
+             text = {
+                 ["V1"] = 0,
+                 ["V2"] = 1,
+                 ["V3"] = 2,
+                 ["V4"] = 3,
+             }
+         }
+        },
+        {name = "Ак.реж. 4",
+         desc = {word = 16, bit = 8, width = 3,
+             text = {
+                 ["АР1"] = 0,
+                 ["АР2"] = 1,
+                 ["АР3"] = 2,
+                 ["АР4"] = 3,
+                 ["АР5"] = 4,
+                 ["АР3-1"] = 5,
+                 ["АР3-2"] = 6,
+             }
+         }
+        },
+        {name = "Дист. 5", desc = {word = 17, factor = 2}},
+        {name = "Курс 5", desc = {word = 18, factor = 0.010992}},
+        {name = "Цирк. 5",
+         desc = {word = 19, bit = 11, width = 1,
+             text = {
+                 ["Есть"] = 1,
+                 ["Нет"] = 0
+             }
+         }
+        },
+        {name = "Ном.Гл. 5",
+         desc = {word = 19, bit = 12, width = 2,
+             text = {
+                 ["h1"] = 1,
+                 ["h2"] = 2,
+                 ["h3"] = 3,
+                 ["h4"] = 0,
+             }
+         }
+        },
+        {name = "Скор. 5",
+         desc = {word = 19, bit = 14, width = 2,
+             text = {
+                 ["V1"] = 0,
+                 ["V2"] = 1,
+                 ["V3"] = 2,
+                 ["V4"] = 3,
+             }
+         }
+        },
+        {name = "Ак.реж. 5",
+         desc = {word = 19, bit = 8, width = 3,
+             text = {
+                 ["АР1"] = 0,
+                 ["АР2"] = 1,
+                 ["АР3"] = 2,
+                 ["АР4"] = 3,
+                 ["АР5"] = 4,
+                 ["АР3-1"] = 5,
+                 ["АР3-2"] = 6,
+             }
+         }
+        },
+        {name = "Дист. 6", desc = {word = 20, factor = 2}},
+        {name = "Курс 6", desc = {word = 21, factor = 0.010992}},
+        {name = "Цирк. 6",
+         desc = {word = 22, bit = 11, width = 1,
+             text = {
+                 ["Есть"] = 1,
+                 ["Нет"] = 0
+             }
+         }
+        },
+        {name = "Ном.Гл. 6",
+         desc = {word = 22, bit = 12, width = 2,
+             text = {
+                 ["h1"] = 1,
+                 ["h2"] = 2,
+                 ["h3"] = 3,
+                 ["h4"] = 0,
+             }
+         }
+        },
+        {name = "Скор. 6",
+         desc = {word = 22, bit = 14, width = 2,
+             text = {
+                 ["V1"] = 0,
+                 ["V2"] = 1,
+                 ["V3"] = 2,
+                 ["V4"] = 3,
+             }
+         }
+        },
+        {name = "Ак.реж. 6",
+         desc = {word = 22, bit = 8, width = 3,
+             text = {
+                 ["АР1"] = 0,
+                 ["АР2"] = 1,
+                 ["АР3"] = 2,
+                 ["АР4"] = 3,
+                 ["АР5"] = 4,
+                 ["АР3-1"] = 5,
+                 ["АР3-2"] = 6,
+             }
+         }
+        },
+        {name = "Курс 7", desc = {word = 27, factor = 0.010992}},
+        {name = "Курс 8", desc = {word = 28, factor = 0.010992}},
+        {name = "Шир. пояс", desc = {word = 31, bit = 9}},
     }
 }
