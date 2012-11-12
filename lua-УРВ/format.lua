@@ -288,7 +288,22 @@ entry{
         {name = "Дифф. 0", desc = {word = 29, factor = 0.0054931640625}},
         {name = "Крен 0", desc = {word = 30, factor = 0.010986328125}},
         {name = "Дист. 1", desc = {word = 5, factor = 2}},
-        {name = "Курс 1", desc = {word = 6, factor = 0.010992}},
+        --{name = "Курс 1", desc = {word = 6, factor = 0.010992}},
+        {dynamic = function(state)
+                if state["Цирк. 1"] == "Есть" then
+                    return {name = "ЗнЦ1",
+                            desc = {word = 6, bit = 15, width = 1,
+                                text = {
+                                    ["+"] = 0,
+                                    ["-"] = 1
+                                }
+                            }
+                    }
+                else
+                    return {name = "Курс 1", desc = {word = 6, factor = 0.010992}}
+                end
+            end
+        },
         {name = "Глубина 1", desc = {word = 23, factor = 0.25}},
         {name = "Цирк. 1",
          desc = {word = 7, bit = 11, width = 1,
@@ -332,7 +347,22 @@ entry{
          }
         },
         {name = "Дист. 2", desc = {word = 8, factor = 2}},
-        {name = "Курс 2", desc = {word = 9, factor = 0.010992}},
+        --{name = "Курс 2", desc = {word = 9, factor = 0.010992}},
+        {dynamic = function(state)
+                if state["Цирк. 2"] == "Есть" then
+                    return {name = "ЗнЦ2",
+                            desc = {word = 9, bit = 15, width = 1,
+                                text = {
+                                    ["+"] = 0,
+                                    ["-"] = 1
+                                }
+                            }
+                    }
+                else
+                    return {name = "Курс 2", desc = {word = 9, factor = 0.010992}}
+                end
+            end
+        },
         {name = "Глубина 2", desc = {word = 24, factor = 0.25}},
         {name = "Цирк. 2",
          desc = {word = 10, bit = 11, width = 1,
@@ -376,7 +406,22 @@ entry{
          }
         },
         {name = "Дист. 3", desc = {word = 11, factor = 2}},
-        {name = "Курс 3", desc = {word = 12, factor = 0.010992}},
+        --{name = "Курс 3", desc = {word = 12, factor = 0.010992}},
+        {dynamic = function(state)
+                if state["Цирк. 3"] == "Есть" then
+                    return {name = "ЗнЦ3",
+                            desc = {word = 12, bit = 15, width = 1,
+                                text = {
+                                    ["+"] = 0,
+                                    ["-"] = 1
+                                }
+                            }
+                    }
+                else
+                    return {name = "Курс 3", desc = {word = 12, factor = 0.010992}}
+                end
+            end
+        },
         {name = "Глубина 3", desc = {word = 25, factor = 0.25}},
         {name = "Цирк. 3",
          desc = {word = 13, bit = 11, width = 1,
@@ -420,7 +465,22 @@ entry{
          }
         },
         {name = "Дист. 4", desc = {word = 14, factor = 2}},
-        {name = "Курс 4", desc = {word = 15, factor = 0.010992}},
+        --{name = "Курс 4", desc = {word = 15, factor = 0.010992}},
+        {dynamic = function(state)
+                if state["Цирк. 4"] == "Есть" then
+                    return {name = "ЗнЦ4",
+                            desc = {word = 15, bit = 15, width = 1,
+                                text = {
+                                    ["+"] = 0,
+                                    ["-"] = 1
+                                }
+                            }
+                    }
+                else
+                    return {name = "Курс 4", desc = {word = 15, factor = 0.010992}}
+                end
+            end
+        },
         {name = "Глубина 4", desc = {word = 26, factor = 0.25}},
         {name = "Цирк. 4",
          desc = {word = 16, bit = 11, width = 1,
@@ -464,7 +524,22 @@ entry{
          }
         },
         {name = "Дист. 5", desc = {word = 17, factor = 2}},
-        {name = "Курс 5", desc = {word = 18, factor = 0.010992}},
+        --{name = "Курс 5", desc = {word = 18, factor = 0.010992}},
+        {dynamic = function(state)
+                if state["Цирк. 5"] == "Есть" then
+                    return {name = "ЗнЦ5",
+                            desc = {word = 18, bit = 15, width = 1,
+                                text = {
+                                    ["+"] = 0,
+                                    ["-"] = 1
+                                }
+                            }
+                    }
+                else
+                    return {name = "Курс 5", desc = {word = 18, factor = 0.010992}}
+                end
+            end
+        },
         {name = "Цирк. 5",
          desc = {word = 19, bit = 11, width = 1,
              text = {
@@ -507,7 +582,22 @@ entry{
          }
         },
         {name = "Дист. 6", desc = {word = 20, factor = 2}},
-        {name = "Курс 6", desc = {word = 21, factor = 0.010992}},
+        --{name = "Курс 6", desc = {word = 21, factor = 0.010992}},
+        {dynamic = function(state)
+                if state["Цирк. 6"] == "Есть" then
+                    return {name = "ЗнЦ6",
+                            desc = {word = 21, bit = 15, width = 1,
+                                text = {
+                                    ["+"] = 0,
+                                    ["-"] = 1
+                                }
+                            }
+                    }
+                else
+                    return {name = "Курс 6", desc = {word = 21, factor = 0.010992}}
+                end
+            end
+        },
         {name = "Цирк. 6",
          desc = {word = 22, bit = 11, width = 1,
              text = {
@@ -549,8 +639,6 @@ entry{
              }
          }
         },
-        {name = "Курс 7", desc = {word = 27, factor = 0.010992}},
-        {name = "Курс 8", desc = {word = 28, factor = 0.010992}},
         {name = "Шир. пояс", desc = {word = 31, bit = 9}},
     }
 }

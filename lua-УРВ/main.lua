@@ -34,6 +34,9 @@ save_element = {
             values = {}
         }
         for _, v in ipairs(formats[state.codename].fields) do
+            if v.dynamic then
+                v = v.dynamic(state)
+            end
             data[state.data_id].values[v.name] = state[v.name]
         end
         screen.clear()
@@ -95,16 +98,19 @@ function callbacks.data_actions(state)
             {text = "Тест", callback = callbacks.test},
             {text = "Ввод", callback = callbacks.upload}
         }
-     }
-     if state.data_id then
-         local d = data[state.data_id]
-         for _, v in ipairs(formats[d.codename].fields) do
-             state[v.name] = d.values[v.name]
-         end
-         scheme.elements[#scheme.elements + 1] = erase_element
-     end
-     scheme.elements[#scheme.elements + 1] = back_element
-     return scheme
+    }
+    if state.data_id then
+        local d = data[state.data_id]
+        for _, v in ipairs(formats[d.codename].fields) do
+            if v.dynamic then
+                v = v.dynamic(d.values)
+            end
+            state[v.name] = d.values[v.name]
+        end
+        scheme.elements[#scheme.elements + 1] = erase_element
+    end
+    scheme.elements[#scheme.elements + 1] = back_element
+    return scheme
 end
 --------------------------------------------------------------------------------
 function send_blk(code_word, data)
@@ -217,6 +223,9 @@ function generate_data(state, formats)
     end
     for _, v in pairs(formats[state.codename].fields) do
         local value
+        if v.dynaimc then
+            v = v.dynamic(state)
+        end
         if v.desc.text ~= nil then
             value = v.desc.text[state[v.name]]
         else
@@ -316,6 +325,9 @@ function callbacks.elements_list(state)
         elements = {}
     }
     for i, v in ipairs(formats[state.codename].fields) do
+        if v.dynamic then
+            v = v.dynamic(state)
+        end
         if v.desc.text then
             values = {}
             for k, _ in pairs(v.desc.text) do
