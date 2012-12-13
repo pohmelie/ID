@@ -17,41 +17,165 @@ entry{
     },
     fields = {
         {name = "Реж. раб.",
-         desc = {word = 1, bit = 12, width = 3,
+         desc = {word = 1, bit = 13, width = 3,
              text = {
-                 ["НК"] = 0,
+                 ["НК-КС"] = 0,
                  ["ПХ"] = 1,
-                 ["ПЛ"] = 2
+                 ["ПЛ"] = 2,
+                 ["НК-корпус"] = 3,
+                 ["ИЦ"] = 4
              }
          }
         },
-        {name = "Борт ТА",
-         desc = {word = 1, bit = 9, width = 3,
+        {name = "Бц",
+         desc = {word = 1, bit = 11, width = 2,
              text = {
-                 ["ПБ"] = 0,
+                 ["ПБ"] = 2,
                  ["ЛБ"] = 1
              }
          }
         },
-        {name = "Пр. ТА",
-         desc = {word = 1, bit = 7, width = 2,
-             text = {
-                 ["Нос"] = 0,
-                 ["Борт"] = 1,
-                 ["677"] = 2
-             }
-         }
-        },
         {name = "ЛУ",
-         desc = {word = 2, bit = 13, width = 2,
+         desc = {word = 1, bit = 9, width = 2,
              text = {
                  ["Лед"] = 2,
                  ["Нелед"] = 1
              }
          }
         },
+        {name = "ШТ",
+         desc = {word = 1, bit = 6, width = 3,
+             text = {
+                 ["1-я"] = 0,
+                 ["2-я"] = 1,
+                 ["3-я"] = 2,
+                 ["4-я"] = 3,
+                 ["Один. с КМВ"] = 4,
+             }
+         }
+        },
+        {name = "Кц",
+         desc = {word = 1, bit = 3, width = 3,
+             text = {
+                 ["Первый КС"] = 0,
+                 ["Второй КС"] = 1,
+                 ["Третий КС"] = 2,
+                 ["Четвертый КС"] = 3,
+                 ["Выбор из 1 КС"] = 4,
+                 ["Выбор из 2 КС"] = 5,
+                 ["Выбор из 3 КС"] = 6,
+                 ["Выбор из 4 КС"] = 7,
+             }
+         }
+        },
+        {name = "Вст",
+         desc = {word = 1, bit = 2, width = 1,
+             text = {
+                 ["Один"] = 0,
+                 ["Залп"] = 1
+             }
+         }
+        },
+        {name = "ЗЦ",
+         desc = {word = 2, bit = 15, width = 1,
+             text = {
+                 ["Право"] = 0,
+                 ["Лево"] = 1
+             }
+         }
+        },
+        {name = "ПН",
+         desc = {word = 2, bit = 13, width = 2,
+             text = {
+                 ["ПЛ с осевыми ТА"] = 1,
+                 ["НК 1-го типа"] = 2,
+                 ["НК 2-го типа"] = 3,
+             }
+         }
+        },
+        {name = "РД",
+         desc = {word = 2, bit = 12, width = 1,
+             text = {
+                 ["Vmax"] = 0,
+                 ["Vmin"] = 1,
+             }
+         }
+        },
+        {name = "Пр. ТА",
+         desc = {word = 2, bit = 11, width = 1,
+             text = {
+                 ["Не ПЛ"] = 0,
+                 ["ПЛ"] = 1,
+             }
+         }
+        },
+        {name = "Пр. 677",
+         desc = {word = 2, bit = 10, width = 1,
+             text = {
+                 ["Не ПЛ 677"] = 0,
+                 ["ПЛ 677"] = 1,
+             }
+         }
+        },
+        {name = "ПрГ",
+         desc = {word = 2, bit = 9, width = 1,
+             text = {
+                 ["НУ"] = 0,
+                 ["Грунт"] = 1
+             }
+         }
+        },
+        {name = "ПрЛ",
+         desc = {word = 2, bit = 8, width = 1,
+             text = {
+                 ["НУ"] = 0,
+                 ["Прилед"] = 1
+             }
+         }
+        },
+        {name = "ВБл",
+         desc = {word = 2, bit = 7, width = 1,
+             text = {
+                 ["Разрешено"] = 0,
+                 ["Запрещено"] = 1
+             }
+         }
+        },
+        {name = "МВП",
+         desc = {word = 2, bit = 6, width = 1,
+             text = {
+                 ["Разрешено"] = 0,
+                 ["Запрещено"] = 1
+             }
+         }
+        },
+        {name = "МС ССН",
+         desc = {word = 2, bit = 5, width = 1,
+             text = {
+                 ["Не используется"] = 0,
+                 ["Используется"] = 1
+             }
+         }
+        },
+        {name = "Шир. пояс", desc = {word = 3, bit = 10, width = 6}},
+        {name = "ВТУ",
+         desc = {word = 3, bit = 9, width = 1,
+             text = {
+                 ["Не включено"] = 0,
+                 ["Включено"] = 1
+             }
+         }
+        },
+        {name = "Борт ТА",
+         desc = {word = 3, bit = 8, width = 1,
+             text = {
+                 ["ПБ"] = 0,
+                 ["ЛБ"] = 1
+             }
+         }
+        },
         {name = "ВКТ",
-         desc = {word = 2, bit = 11, width = 2,
+         desc = {word = 3, bit = 6, width = 2,
              text = {
                  ["Вниз"] = 0,
                  ["Вверх"] = 1,
@@ -59,66 +183,47 @@ entry{
              }
          }
         },
-        {name = "ПрЛ",
-         desc = {word = 2, bit = 9, width = 2,
+        {name = "РЦ",
+         desc = {word = 3, bit = 4, width = 2,
              text = {
-                 ["НУ"] = 0,
-                 ["Прилед"] = 1
+                 ["Авианосец / АПРЛ"] = 0,
+                 ["Крейсер / АПЛ"] = 1,
+                 ["Эсминец / ДПЛ"] = 2,
+                 ["Корвет / СМПЛ"] = 3
              }
          }
         },
-        {name = "ПрГ",
-         desc = {word = 2, bit = 7, width = 2,
-             text = {
-                 ["НУ"] = 0,
-                 ["Грунт"] = 1
-             }
-         }
-        },
-        {name = "Вст",
-         desc = {word = 3, bit = 13, width = 2,
-             text = {
-                 ["Один"] = 0,
-                 ["Залп"] = 1
-             }
-         }
-        },
-        {name = "ШТ", desc = {word = 3, bit = 10, width = 3}},
-        {name = "Кц", desc = {word = 3, bit = 7, width = 3}},
-        {name = "Бц",
-         desc = {word = 3, bit = 6, width = 1,
-             text = {
-                 ["ПБ"] = 0,
-                 ["ЛБ"] = 1
-             }
-         }
-        },
-        {name = "Дalpha", desc = {word = 4, factor = 2}},
-        {name = "Драб", desc = {word = 5, factor = 2}},
-        {name = "Дсн", desc = {word = 6, factor = 2}},
-        {name = "Дhб", desc = {word = 7, factor = 2}},
-        {name = "Да/Дкр", desc = {word = 8, factor = 2}},
-        {name = "Дdphi", desc = {word = 9, factor = 2}},
-        {name = "Дw1", desc = {word = 10, factor = 2}},
-        {name = "Дw2", desc = {word = 11, factor = 2}},
-        {name = "Дw3", desc = {word = 12, factor = 2}},
-        {name = "h поиска", desc = {word = 13, bit = 2, width = 14}},
-        {name = "h марш.", desc = {word = 14, bit = 2, width = 14}},
-        {name = "h боевая", desc = {word = 15, bit = 2, width = 14}},
-        {name = "h отвед.", desc = {word = 16, bit = 2, width = 14}},
-        {name = "hов", desc = {word = 17, bit = 2, width = 14}},
-        {name = "hон", desc = {word = 18, bit = 2, width = 14}},
-        {name = "h места", desc = {word = 28, bit = 2, width = 14}},
-        {name = "w", desc = {word = 19, factor = 0.010986328125}},
-        {name = "w + alpha", desc = {word = 20, factor = 0.010986328125}},
-        {name = "w + dphi", desc = {word = 21, factor = 0.010986328125}},
-        {name = "w1", desc = {word = 22, factor = 0.010986328125}},
-        {name = "w2", desc = {word = 23, factor = 0.010986328125}},
-        {name = "w3", desc = {word = 24, factor = 0.010986328125}},
-        {name = "theta0", desc = {word = 29, factor = 0.0054931640625}},
-        {name = "gamma0", desc = {word = 30, factor = 0.010986328125}},
-        {name = "Шир. пояс", desc = {word = 31, bit = 9, width = 7}},
-        {name = "Дпр", desc = {word = 32, factor = 2}}
+        {name = "Дalpha", desc = {word = 4}},
+        {name = "Драб", desc = {word = 5}},
+        {name = "Дw1", desc = {word = 6}},
+        {name = "Дсн", desc = {word = 7}},
+        {name = "Дw2", desc = {word = 8}},
+        {name = "Дdphi", desc = {word = 9}},
+        {name = "Дкр", desc = {word = 10}},
+        {name = "Дw3", desc = {word = 11}},
+        {name = "Да", desc = {word = 12}},
+        {name = "Дhб", desc = {word = 13}},
+        {name = "Дпр", desc = {word = 14}},
+
+        {name = "w1", desc = {word = 17, factor = 0.0054931640625}},
+        {name = "w2", desc = {word = 18, factor = 0.0054931640625}},
+        {name = "w3", desc = {word = 19, factor = 0.0054931640625}},
+
+        {name = "h акв.", desc = {word = 20}},
+        {name = "h ск.", desc = {word = 21}},
+        {name = "h марш.", desc = {word = 22}},
+        {name = "h поиска", desc = {word = 23}},
+        {name = "h боевая", desc = {word = 24}},
+        {name = "hов", desc = {word = 25}},
+        {name = "hон", desc = {word = 26}},
+        {name = "h отвед.", desc = {word = 27}},
+
+        {name = "w", desc = {word = 28, factor = 0.0054931640625}},
+        {name = "w + alpha", desc = {word = 29, factor = 0.0054931640625}},
+        {name = "w + dphi", desc = {word = 30, factor = 0.0054931640625}},
+
+        {name = "theta0", desc = {word = 31, factor = 0.00274658203125}},
+        {name = "gamma0", desc = {word = 32, factor = 0.0054931640625}}
     }
 }
 
