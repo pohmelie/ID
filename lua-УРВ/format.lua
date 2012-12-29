@@ -205,9 +205,9 @@ entry{
         {name = "Дhб", desc = {word = 13}},
         {name = "Дпр", desc = {word = 14}},
 
-        {name = "w1", desc = {word = 17, factor = 0.0054931640625}},
-        {name = "w2", desc = {word = 18, factor = 0.0054931640625}},
-        {name = "w3", desc = {word = 19, factor = 0.0054931640625}},
+        {name = "w1", desc = {word = 17, factor = 360 / 32768}},
+        {name = "w2", desc = {word = 18, factor = 360 / 32768}},
+        {name = "w3", desc = {word = 19, factor = 360 / 32768}},
 
         {name = "h акв.", desc = {word = 20}},
         {name = "h ск.", desc = {word = 21}},
@@ -218,12 +218,12 @@ entry{
         {name = "hон", desc = {word = 26}},
         {name = "h отвед.", desc = {word = 27}},
 
-        {name = "w", desc = {word = 28, factor = 0.0054931640625}},
-        {name = "w + alpha", desc = {word = 29, factor = 0.0054931640625}},
-        {name = "w + dphi", desc = {word = 30, factor = 0.0054931640625}},
+        {name = "w", desc = {word = 28, factor = 360 / 32768}},
+        {name = "w + alpha", desc = {word = 29, factor = 360 / 32768}},
+        {name = "w + dphi", desc = {word = 30, factor = 360 / 32768}},
 
-        {name = "theta0", desc = {word = 31, factor = 0.00274658203125}},
-        {name = "gamma0", desc = {word = 32, factor = 0.0054931640625}}
+        {name = "theta0", desc = {word = 31, factor = 180 / 32768}},
+        {name = "gamma0", desc = {word = 32, factor = 360 / 32768}}
     }
 }
 
