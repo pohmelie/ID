@@ -223,7 +223,7 @@ function generate_data(state, formats)
     end
     for _, v in pairs(formats[state.codename].fields) do
         local value
-        if v.dynaimc then
+        if v.dynamic then
             v = v.dynamic(state)
         end
         if v.desc.text ~= nil then
