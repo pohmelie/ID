@@ -156,7 +156,6 @@ function callbacks.test(state)
     local dir = {to = 0, from = 0x400}
     local log = menu.logging(state)
     timer.uni_cfg(0, 0, 0, 0, 0, 0) --power
-    log("Питание подано")
     local address = formats[state.codename].address[state["Режим"]]
     log("Тест "..state["Режим"])
     timer.sleep(3000)
@@ -177,7 +176,6 @@ function callbacks.test(state)
         log("Отказ БЗ:МК")
         timer.sleep(2000)
         timer.uni_cfg(0xff, 0xff, 0xff, 0xff, 0xff, 0xff)
-        log("Питание снято")
         log()
         return back_element.callback(state)
     end
@@ -197,21 +195,24 @@ function callbacks.test(state)
         end
     end
     if status ~= STATUS.GOOD then
-        if bit32.band(status, STATUS.BAD) ~= 0 then
-            log("Отказ БЗ:ГО")
+        if bit32.band(status, STATUS.CONTROL) ~= 0 then
+            log("Отс. 'Исправно'")
+        elseif bit32.band(status, STATUS.BAD) ~= 0 then
+            log("Брак МЧ")
         elseif bit32.band(status, STATUS.READY) ~= 0 then
-            log("Отказ БЗ:БК")
+            log("Блокировки сняты")
         elseif bit32.band(status, STATUS.ERR) ~= 0 then
-            log("Отказ БЗ:БОД")
+            log("Заливка БОД")
         else
             log(string.format("Отказ [0x%x]", status))
         end
+        log("Отказ БЗ")
     else
         log("Изделие исправно")
+        log("БЗ готов")
     end
     timer.sleep(2000)
     timer.uni_cfg(0xff, 0xff, 0xff, 0xff, 0xff, 0xff)
-    log("Питание снято")
     log()
     return back_element.callback(state)
 end
@@ -243,7 +244,6 @@ end
 function callbacks.upload(state)
     local dir, log = {to = 0, from = 0x400}, menu.logging(state)
     timer.uni_cfg(0, 0, 0, 0, 0, 0) --power
-    log("Питание подано")
     local address = formats[state.codename].address[state["Режим"]]
     log("Ввод "..state["Режим"])
     timer.sleep(3000)
@@ -263,7 +263,6 @@ function callbacks.upload(state)
             log("Отказ БЗ:МК")
             timer.sleep(2000)
             timer.uni_cfg(0xff, 0xff, 0xff, 0xff, 0xff, 0xff)
-            log("Питание снято")
             log()
             return back_element.callback(state)
         elseif not equal then
@@ -288,14 +287,19 @@ function callbacks.upload(state)
     end
     if status == bit32.bor(STATUS.GOOD, STATUS.READY) then
         log("Блокировки сняты")
+        log("Пуск разрешён")
+    elseif status == bit32.bor(STATUS.PREPARE, STATUS.GOOD) then
+        log("Блокировки не сняты")
+        log("Отказ БЗ")
     elseif status == STATUS.ERR then
         log("Заливка БОД")
+        log("Отказ БЗ")
     else
+        log("Отказ рабочего МПИ")
         log("Отказ БЗ")
     end
     timer.sleep(2000)
     timer.uni_cfg(0xff, 0xff, 0xff, 0xff, 0xff, 0xff)
-    log("Питание снято")
     log()
     return back_element.callback(state)
 end
