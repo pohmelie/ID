@@ -287,7 +287,7 @@ function callbacks.upload(state)
     end
     if status == bit32.bor(STATUS.GOOD, STATUS.READY) then
         log("Блокировки сняты")
-        log("Пуск разрешён")
+        log("Пуск разрешен")
     elseif status == bit32.bor(STATUS.PREPARE, STATUS.GOOD) then
         log("Блокировки не сняты")
         log("Отказ БЗ")
