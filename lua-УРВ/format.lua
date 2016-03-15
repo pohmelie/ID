@@ -760,6 +760,8 @@ entry{
              }
          }
         },
+        {name = "Прир.Кур.", desc = {word = 27, factor = 0.010992}},
+        {name = "Кор.Кард.", desc = {word = 28, factor = 0.010992}},
         {name = "Шир. пояс", desc = {word = 31, bit = 9}},
     }
 }
