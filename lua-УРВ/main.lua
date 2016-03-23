@@ -269,6 +269,10 @@ function callbacks.upload(state)
                 break
             end
             timer.sleep(100)
+            send_blk(make_code_word(dir.to, address, 1, 1), {0xcece})
+            timer.sleep(100)
+            send_blk(make_code_word(dir.to, address, 18, 1), {0xaa})            
+            timer.sleep(100)
         end
         if not equal and i == 1 then
             log("¬вод не прошел")
@@ -280,11 +284,6 @@ function callbacks.upload(state)
         elseif not equal then
             i = i + 1
             mkio.bcdefbus(i)
-            timer.sleep(100)
-            send_blk(make_code_word(dir.to, address, 1, 1), {0xcece})
-            timer.sleep(100)
-            send_blk(make_code_word(dir.to, address, 18, 1), {0xaa})
-            timer.sleep(100)
         end
     end
     timer.sleep(100)
