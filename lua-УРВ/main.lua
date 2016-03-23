@@ -162,11 +162,17 @@ function callbacks.test(state)
     local equal = {true, true}
     for i = 1, 2 do
         mkio.bcdefbus(i - 1)
-        send_blk(make_code_word(dir.to, address, 18, 4), test_block)
-        timer.sleep(100)
-        equal[i] = iequal(
-            test_block,
-            get_blk(make_code_word(dir.from, address, 19, 4), 4))
+        for attempt = 1, 2 do
+            send_blk(make_code_word(dir.to, address, 18, 4), test_block)
+            timer.sleep(100)
+            equal[i] = iequal(
+                test_block,
+                get_blk(make_code_word(dir.from, address, 19, 4), 4))
+            if equal[i] then
+                break
+            end
+            timer.sleep(100)
+        end
         local chan_names = {"осн.", "рез."}
         if not equal[i] then
             log("Отказ МКИО "..chan_names[i])
@@ -253,11 +259,17 @@ function callbacks.upload(state)
     local equal, i = false, 0
     mkio.bcdefbus(i)
     while not equal do
-        send_blk(make_code_word(dir.to, address, 2, 0), d)
-        timer.sleep(10)
-        send_blk(make_code_word(dir.to, address, 1, 1), {0xff})
-        timer.sleep(15)
-        equal = iequal(d, get_blk(make_code_word(dir.from, address, 2, 0), 32))
+        for attempt = 1, 2 do
+            send_blk(make_code_word(dir.to, address, 2, 0), d)
+            timer.sleep(10)
+            send_blk(make_code_word(dir.to, address, 1, 1), {0xff})
+            timer.sleep(15)
+            equal = iequal(d, get_blk(make_code_word(dir.from, address, 2, 0), 32))
+            if equal then
+                break
+            end
+            timer.sleep(100)
+        end
         if not equal and i == 1 then
             log("Ввод не прошел")
             log("Отказ БЗ:МК")
